@@ -1,0 +1,5 @@
+[profile wl1]
+region = eu-central-1
+
+[profile wl2]
+region = eu-central-1

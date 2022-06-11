@@ -1,0 +1,8 @@
+[org-admin-machine-user]
+region = eu-central-1
+
+[profile org-assumer]
+region = eu-central-1
+
+[profile master-admin]
+region = eu-central-1

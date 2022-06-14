@@ -21,19 +21,21 @@ data "terraform_remote_state" "network" {
 }
 
 module "vm-alpha" {
-  source = "../../modules/vm-module"
+  source = "../../modules/vm-module-with-sg"
   providers = {
     aws = aws.alpha
   }
   name = "alpha-shared-vpc"
   subnet_id = data.terraform_remote_state.network.outputs.shared-vpc-private-subnets[0]
+  vpc_id = data.terraform_remote_state.network.outputs.shared-vpc-id
 }
 
 module "vm-bravo" {
-  source = "../../modules/vm-module"
+  source = "../../modules/vm-module-with-sg"
   providers = {
     aws = aws.bravo
   }
   name = "bravo-shared-vpc"
   subnet_id = data.terraform_remote_state.network.outputs.shared-vpc-private-subnets[0]
+  vpc_id = data.terraform_remote_state.network.outputs.shared-vpc-id
 }

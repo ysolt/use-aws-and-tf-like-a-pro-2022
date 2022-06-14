@@ -45,3 +45,11 @@ resource "aws_ram_principal_association" "prod-network" {
   principal          = "arn:aws:organizations::741723870547:ou/o-pvk5lj0g5f/ou-bm0u-w05ge9u6"
   resource_share_arn = aws_ram_resource_share.prod-network.arn
 }
+
+output "shared-vpc-private-subnets" {
+  value = module.vpc.private_subnets
+}
+
+output "shared-vpc-id" {
+  value = module.vpc.vpc_id
+}

@@ -1,4 +1,4 @@
-[org-admin-machine-user]
+[profile org-admin-machine-user]
 region = eu-central-1
 
 [profile org-assumer]

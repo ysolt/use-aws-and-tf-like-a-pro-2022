@@ -1,5 +1,7 @@
-[profile wl1]
-region = eu-central-1
+[profile alpha]
+role_arn = arn:aws:iam::234539872435:role/OrganizationAccountAccessRole
+source_profile = org-assumer
 
-[profile wl2]
-region = eu-central-1
+[profile bravo]
+role_arn = arn:aws:iam::957694108706:role/OrganizationAccountAccessRole
+source_profile = org-assumer

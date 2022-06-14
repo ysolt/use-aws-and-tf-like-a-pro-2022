@@ -1,5 +1,5 @@
-[profile wl1]
+[profile alpha]
 region = eu-central-1
 
-[profile wl2]
+[profile bravo]
 region = eu-central-1

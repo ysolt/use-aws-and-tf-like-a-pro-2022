@@ -1,12 +1,12 @@
 provider "aws" {
-  profile = "wl1"
-  alias   = "wl1"
+  profile = "alpha"
+  alias   = "alpha"
   region  = "eu-central-1"
 }
 
 provider "aws" {
-  profile = "wl2"
-  alias   = "wl2"
+  profile = "bravo"
+  alias   = "bravo"
   region  = "eu-central-1"
 }
 
@@ -20,22 +20,22 @@ data "terraform_remote_state" "network" {
   }
 }
 
-module "vm-wl1" {
+module "vm-alpha" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.wl1
+    aws = aws.alpha
   }
-  name = "wl1-shared-vpc"
+  name = "alpha-shared-vpc"
   subnet_id = data.terraform_remote_state.network.outputs.shared-vpc-private-subnets[0]
 #  vpc_id = data.terraform_remote_state.network.outputs.shared-vpc-id
 }
 
-module "vm-wl2" {
+module "vm-bravo" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.wl2
+    aws = aws.bravo
   }
-  name = "wl2-shared-vpc"
+  name = "bravo-shared-vpc"
   subnet_id = data.terraform_remote_state.network.outputs.shared-vpc-private-subnets[0]
 #  vpc_id = data.terraform_remote_state.network.outputs.shared-vpc-id
 }

@@ -12,7 +12,7 @@ module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "3.14.0"
 
-  name = "my-vpc"
+  name = "shared-vpc"
   cidr = "10.0.0.0/16"
 
   azs             = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
@@ -21,6 +21,9 @@ module "vpc" {
 
   enable_nat_gateway = false
 
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
   tags = {
     Terraform = "true"
     Environment = "dev"
@@ -28,7 +31,7 @@ module "vpc" {
 }
 
 resource "aws_ram_resource_share" "prod-network" {
-  name                      = "prod-network"
+  name                      = "shared-vpc"
 
   tags = {
     Environment = "Production"

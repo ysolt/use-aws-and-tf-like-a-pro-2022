@@ -11,13 +11,9 @@ locals {
   parent_id = var.parent_id
 }
 
-resource "aws_organizations_account" "wl-account" {
+resource "aws_organizations_account" "account" {
   for_each = local.accounts
   name  = each.value.account_name
   email = each.value.email
   parent_id = local.parent_id
-}
-
-output "network-accounts" {
-  value = aws_organizations_account.wl-account
 }

@@ -28,3 +28,9 @@ module "ec2-instance" {
   ami = data.aws_ami.amazon_linux.id
   name = var.name
 }
+
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}

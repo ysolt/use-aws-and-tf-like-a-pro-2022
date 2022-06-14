@@ -25,3 +25,7 @@ module "vm-wl2" {
   }
   name = "wl2"
 }
+
+output "bravo" {
+  value = module.vm-bravo.account_id
+}

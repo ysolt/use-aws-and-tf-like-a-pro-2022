@@ -15,7 +15,7 @@ module "vm-alpha" {
   providers = {
     aws = aws.alpha
   }
-  name = "alpha"
+  name = "alpha-step2"
 }
 
 module "vm-bravo" {
@@ -23,7 +23,7 @@ module "vm-bravo" {
   providers = {
     aws = aws.bravo
   }
-  name = "bravo"
+  name = "bravo-step2"
 }
 
 output "alpha" {

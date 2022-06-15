@@ -10,26 +10,26 @@ provider "aws" {
   region  = "eu-central-1"
 }
 
-module "vm-alpha" {
+module "vm-alpha-dev" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.alpha
+    aws = aws.alpha-dev
   }
-  name = "alpha"
+  name = "alpha-dev"
 }
 
-module "vm-bravo" {
+module "vm-alpha-stage" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.bravo
+    aws = aws.alpha-stage
   }
-  name = "bravo"
+  name = "alpha-stage"
 }
 
-output "alpha" {
-  value = module.vm-alpha.account_id
+output "alpha-dev" {
+  value = module.vm-alpha-dev.account_id
 }
 
-output "bravo" {
-  value = module.vm-bravo.account_id
+output "alpha-stage" {
+  value = module.vm-alpha-stage.account_id
 }

@@ -1,7 +1,7 @@
-[profile alpha]
+[profile alpha-dev]
 role_arn = arn:aws:iam::234539872435:role/OrganizationAccountAccessRole
 source_profile = org-assumer
 
-[profile bravo]
+[profile alpha-stage]
 role_arn = arn:aws:iam::957694108706:role/OrganizationAccountAccessRole
 source_profile = org-assumer

@@ -1,35 +1,35 @@
 provider "aws" {
-  profile = "alpha-sso"
-  alias   = "alpha"
+  profile = "alpha-dev-sso"
+  alias   = "alpha-dev"
   region  = "eu-central-1"
 }
 
 provider "aws" {
-  profile = "bravo-sso"
-  alias   = "bravo"
+  profile = "alpha-stage-sso"
+  alias   = "alpha-stage"
   region  = "eu-central-1"
 }
 
-module "vm-alpha" {
+module "vm-alpha-dev" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.alpha
+    aws = aws.alpha-dev
   }
-  name = "alpha-step6"
+  name = "alpha-dev-step6"
 }
 
-module "vm-bravo" {
+module "vm-alpha-stage" {
   source = "../../modules/vm-module"
   providers = {
-    aws = aws.bravo
+    aws = aws.alpha-stage
   }
-  name = "bravo-step6"
+  name = "alpha-stage-step6"
 }
 
-output "alpha" {
-  value = module.vm-alpha.account_id
+output "alpha-dev" {
+  value = module.vm-alpha-dev.account_id
 }
 
-output "bravo" {
-  value = module.vm-bravo.account_id
+output "alpha-stage" {
+  value = module.vm-alpha-stage.account_id
 }

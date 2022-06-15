@@ -1,0 +1,21 @@
+[profile alpha]
+role_arn = arn:aws:iam::234539872435:role/OrganizationAccountAccessRole
+source_profile = org-assumer
+
+[profile bravo]
+role_arn = arn:aws:iam::957694108706:role/OrganizationAccountAccessRole
+source_profile = org-assumer
+
+[profile alpha-sso]
+sso_start_url = https://d-99671b0799.awsapps.com/start#/
+sso_region = eu-central-1
+sso_account_id = 234539872435
+sso_role_name = AdministratorAccess
+region = eu-central-1
+
+[profile bravo-sso]
+sso_start_url = https://d-99671b0799.awsapps.com/start#/
+sso_region = eu-central-1
+sso_account_id = 957694108706
+sso_role_name = AdministratorAccess
+region = eu-central-1
